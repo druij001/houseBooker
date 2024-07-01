@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import {fetchHouses} from './DbAccess'
+import {fetchHouses, fetchHouseImages} from './DbAccess'
 import HouseCard from './Elements/HouseCard';
 
 export default function Home() {
@@ -9,7 +9,6 @@ export default function Home() {
         (async () => {
             const h = await fetchHouses();
             setHouses(h);
-            console.log(await h);
         })();
 
         return () => {
@@ -17,7 +16,6 @@ export default function Home() {
         };
     }, [])
 
-    console.log(houses);
     return (
         <div>
         {houses ? <div>
@@ -25,10 +23,10 @@ export default function Home() {
         <div className='row'>
         {houses.map((house) => (
             <HouseCard
-            key={house.id} 
-            name={house.house_name}
+            key={house.id}
+            id={house.id} 
+            name={`${house.number} ${house.street}`}
             cost={house.cost_per_night}
-            photo={house.photo}
             />
         ))}</div></div> : <></>}
         </div>
