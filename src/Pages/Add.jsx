@@ -16,8 +16,7 @@ export default function Add ({}) {
             let data = await insertHouse(num, str, sub, sta, pc);
             if(data) {
                 let houseId=data.id;
-                window.location.href=`/Add/${houseId}`;
-                console.log(data.id);
+                window.location.href=`/${houseId}/AddImages`;
             }
         }
         else {

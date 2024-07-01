@@ -39,6 +39,7 @@ export default function AddImages () {
                 <button key={i}>{img.name}</button>
             ))}
             </div>
+            <button onSubmit={window.location.href=`/${houseId}/AddDetails`}>Done</button>
         </div>
         
     )
