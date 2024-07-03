@@ -63,17 +63,16 @@ export async function insertHouse(nm, str, sb, sta, po) {
     }
 }
 
-export async function insertHouseImage(path, houseId) {
-  console.log("HID: ", houseId);
-  console.log("inserting: ", path);
-  
+export async function insertHouseDetails(houseId, pre, dur, post, cost, pub) {
+ 
+  console.log(houseId);
   const {data, error} = await supabase.from('Houses')
-  .update({photosPath: path})
+  .update({pre_stay_info: pre, post_stay_info: post, stay_info: dur, cost_per_night: cost, public: pub})
   .eq("id", houseId)
-  .select();
+  .select().single();
 
   if(error) {
-    console.log("Error inserting house image");
+    console.log("Error inserting details");
   } else {
     console.log(data);
     return data;
