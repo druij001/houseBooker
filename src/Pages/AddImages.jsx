@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { uploadHouseImage, insertHouseImage } from "../DbAccess";
+import { uploadHouseImage } from "../DbAccess";
 import {useParams} from 'react-router-dom'
 
 export default function AddImages () {
@@ -39,7 +39,7 @@ export default function AddImages () {
                 <button key={i}>{img.name}</button>
             ))}
             </div>
-            <button onSubmit={window.location.href=`/${houseId}/AddDetails`}>Done</button>
+            <button onClick={window.location.href=`/${houseId}/AddDetails`}>Done</button>
         </div>
         
     )
