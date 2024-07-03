@@ -19,7 +19,7 @@ export default function AddDetails() {
         if(pub == 'on'){pubBool = true;} 
 
         if(pre && during && post && cost) {
-            alert(`INSERTING: ${pre}, ${during}, ${post}, ${cost}, ${pubBool}`);
+            console.log(`INSERTING: ${pre}, ${during}, ${post}, ${cost}, ${pubBool}`);
             insertHouseDetails(houseId, pre, during, post, cost, pubBool);
         } else {
             alert(`Fill out all fields: ${pre}, ${during}, ${post}, ${cost}, ${pubBool}`);

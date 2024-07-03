@@ -23,10 +23,12 @@ export default function HouseCard({id, name, cost}) {
     }
 
     return (
+        <div>
         <button className="houseCard">
             <h2>{name}</h2>
                 <img src={imageUrl} className="housePhoto"/>
             <p>${cost} per night</p>
         </button>
+        </div>
     );
 }

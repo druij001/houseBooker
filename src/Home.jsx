@@ -20,7 +20,7 @@ export default function Home() {
         <div>
         {houses ? <div>
         <h1>Houses</h1>
-        <div className='row'>
+        <div className='col'><div className='houseCardCol'>
         {houses.map((house) => (
             <HouseCard
             key={house.id}
@@ -28,7 +28,8 @@ export default function Home() {
             name={`${house.number} ${house.street}`}
             cost={house.cost_per_night}
             />
-        ))}</div></div> : <></>}
+        ))}</div></div></div>
+        : <></>}
         </div>
     );
 }

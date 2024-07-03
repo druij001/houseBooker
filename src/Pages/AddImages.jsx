@@ -8,8 +8,6 @@ export default function AddImages () {
     let { houseId } = useParams(null);
 
     useEffect(() => {
-        console.log(imgs);
-        console.log(houseId);
     }, [imgs])
 
     async function handleUploadFiles(files) {
@@ -30,6 +28,10 @@ export default function AddImages () {
         handleUploadFiles(chosenFiles);
     }
 
+    function goToDetailsScreen() {
+        window.location.href=`/${houseId}/addDetails`
+    }
+
     return (
         <div>
             <h1>Let's add some images!</h1>
@@ -39,7 +41,7 @@ export default function AddImages () {
                 <button key={i}>{img.name}</button>
             ))}
             </div>
-            <button onClick={window.location.href=`/${houseId}/AddDetails`}>Done</button>
+            <button onClick={goToDetailsScreen}>Done</button>
         </div>
         
     )
