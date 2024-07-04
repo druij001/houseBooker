@@ -7,6 +7,7 @@ import AddImages from './Pages/AddImages'
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HouseDetails from './Pages/HouseDetails'
+import BookStay from './Pages/BookStay'
 
 export default function Index({id, session}) {
 
@@ -20,7 +21,8 @@ export default function Index({id, session}) {
 
             <Route path=":houseId/AddImages" element={<AddImages/>} />
             <Route path=":houseId/AddDetails" element={<AddDetails/>} />
-            <Route path=":Houses/:houseId" element={<HouseDetails />}/>
+            <Route path="Houses/:houseId" element={<HouseDetails />}/>
+            <Route path="Houses/:houseId/Book" element={<BookStay />}/>
           </Route>
         </Routes>
       </BrowserRouter>

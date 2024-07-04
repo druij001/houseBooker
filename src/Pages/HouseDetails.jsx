@@ -62,6 +62,10 @@ export default function HouseDetails() {
         return url.publicUrl;
     }
 
+    function redirectToStay() {
+        window.location.href = `/Houses/${houseId}/Book`
+    }
+
     return (
         <div>
             <h1>{`${number} ${street}, ${suburb}`}</h1>
@@ -70,7 +74,7 @@ export default function HouseDetails() {
             </div>
 
             <div>
-                <button style={{margin: '10px'}}>Stay Here</button>
+                <button onClick={redirectToStay} style={{margin: '10px'}}>Stay Here</button>
             </div>
 
             {imageUrls && 
