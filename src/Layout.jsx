@@ -6,7 +6,7 @@ export default function Layout() {
       <div className="navBar">
         <div className="left">
           <Link className="navBarItem" to="/">Account</Link>
-          <Link className="navBarItem" to="/Home">Houses</Link>
+          <Link className="navBarItem" to="/Houses">Houses</Link>
         </div>
         <div className="right">
           <Link className="addButton" to="/add">Add</Link>

@@ -9,6 +9,18 @@ export async function fetchHouses() {
         console.log("ERR: Get Houses");
 }
 
+export async function fetchHouseDetails(houseId) {
+  const {data, error} = await supabase.from('Houses')
+  .select()
+  .eq('id', houseId).single();
+
+  if(error) {
+    console.log(error);
+  } else {
+    return data;
+  }
+}
+
 export async function fetchHouseImages(houseId) {
   const { data, error } = await supabase
   .storage

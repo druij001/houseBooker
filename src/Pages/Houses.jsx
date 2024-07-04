@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
-import {fetchHouses, fetchHouseImages} from './DbAccess'
-import HouseCard from './Elements/HouseCard';
+import {fetchHouses} from '../DbAccess'
+import HouseCard from '../Elements/HouseCard';
 
-export default function Home() {
+export default function Houses() {
     const [houses, setHouses] = useState(null);
 
     useEffect(() => {
@@ -24,7 +24,7 @@ export default function Home() {
         {houses.map((house) => (
             <HouseCard
             key={house.id}
-            id={house.id} 
+            houseId={house.id} 
             name={`${house.number} ${house.street}`}
             cost={house.cost_per_night}
             />
