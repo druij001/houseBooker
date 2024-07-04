@@ -5,10 +5,6 @@ import { useParams } from "react-router-dom";
 export default function HouseDetails() {
     let {houseId} = useParams(null); 
 
-    const [costPerNight, setCostPerNight] = useState(null);
-    const [createdAt, setCreatedAt] = useState(null);
-    const [pub, setPub] = useState(null);
-
     const [imageUrls, setImageUrls] = useState([]);
 
     const [number, setNumber] = useState(null);    
@@ -17,6 +13,7 @@ export default function HouseDetails() {
     const [suburb, setSuburb] = useState(null);
     const [postcode, setPostcode] = useState(null);
 
+    const [costPerNight, setCostPerNight] = useState(null);
     const [postStayInfo, setPostStayInfo] = useState(null);
     const [preStayInfo, setPreStayInfo] = useState(null);
     const [stayInfo, setStayInfo] = useState(null);
@@ -32,11 +29,6 @@ export default function HouseDetails() {
         
         if(data) {
             setImageUrls(await retrieveAllImages());
-            console.log(imageUrls);
-
-            console.log(data.cost_per_night);
-            setCreatedAt(data.created_at);
-            setPub(data.public);
             
             setNumber(data.number);    
             setState(data.state);
@@ -48,7 +40,7 @@ export default function HouseDetails() {
             setPreStayInfo(data.pre_stay_info);
             setStayInfo(data.stay_info);
            
-            userId, setUserId(data.user_id);
+            setCostPerNight(data.cost_per_night);
         }
     }
 
@@ -72,14 +64,34 @@ export default function HouseDetails() {
 
     return (
         <div>
-            <h1>{`${number} ${street} ${suburb}`}</h1>
-            <p>{`${state}, ${postcode}`}</p>
+            <h1>{`${number} ${street}, ${suburb}`}</h1>
+            <div className="col">
+                <h3>${costPerNight} per night</h3>
+            </div>
 
-            {imageUrls && imageUrls.map((img, i) => (
-                <div key={i}>
-                    <img src={img} className="housePhoto"/>
-                </div>
+            <div>
+                <button style={{margin: '10px'}}>Stay Here</button>
+            </div>
+
+            {imageUrls && 
+            <div className="houseCardCol">
+            {imageUrls.map((img, i) => (
+                    <img key={i} src={img} className='houseDetailImg'/>
             ))}
+            </div>}
+
+            <div>
+                <h2>Details about this house</h2>
+                <div>
+                    <p>{preStayInfo}</p>
+                </div>
+                <div>
+                    <p>{stayInfo}</p>
+                </div>
+                <div>
+                    <p>{postStayInfo}</p>
+                </div>
+            </div>
         </div>
     )
 }

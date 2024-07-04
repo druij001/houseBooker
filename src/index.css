@@ -111,7 +111,9 @@ button:focus-visible {
 
 .col {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
+  justify-content: center;
 }
 
 .houseCardCol {
@@ -153,5 +155,14 @@ button:focus-visible {
   background-color: #1a1a1a;
   padding: .6em;
   border:rgba(255, 255, 255, 0.87);
+  border-radius: 10px;
+}
+
+.houseDetailImg {
+  margin: 10px;
+  max-width: 25em;
+  height: 300px;
+  object-fit: cover;
+
   border-radius: 10px;
 }
