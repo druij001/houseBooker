@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {formatDatestring, getMonthName, getMonthDates, getDayAbbr, handleDecreaseMonth, handleIncreaseMonth} from './Dates'
+import {formatDatestring, getMonthName, getMonthDates, getDayAbbr, handleDecreaseMonth, handleIncreaseMonth} from '../Functions/Dates'
 
 const DatePicker = ({currentDate, setCurrentDate}) => {
     const [monthDates, setMonthDates] = useState(null);

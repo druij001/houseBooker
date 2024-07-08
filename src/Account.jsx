@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { supabase } from './supabaseClient'
+import { reRouteTo } from './Functions/commonFunctions'
 
 export default function Account({ session }) {
   const [loading, setLoading] = useState(true)
@@ -87,6 +88,7 @@ export default function Account({ session }) {
         <button className="button block" type="button" onClick={() => supabase.auth.signOut()}>
           Sign Out
         </button>
+        <button onClick={() => reRouteTo("/BookingRequests")}>My Requests</button>
       </div>
     </form>
   )

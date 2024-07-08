@@ -55,9 +55,22 @@ export async function fetchBookingDetails(bookingId) {
   .single();
 
   if(error) {
-    console.log('e', error);
+    alert('error', error);
   } else {
-    console.log(data);
+    return data;
+  }
+}
+
+export async function fetchBookings() {
+  const {data, error} = await supabase.from('Booking')
+  .select(`
+    id, start_date, end_date, num_people, message, is_confirmed,
+    Houses (id, cost_per_night, number, street, suburb, state, user_id),
+    profiles (id, full_name)`);
+
+  if(error) {
+    console.log(error);
+  } else {
     return data;
   }
 }

@@ -1,27 +1,18 @@
 import { useParams } from "react-router-dom";
 import BookingStatus from "../Elements/BookingStatus";
-import { fetchBookingDetails } from "../DbAccess";
-import { useEffect, useState } from "react";
+import { reRouteTo } from "../Functions/commonFunctions";
 
 export default function BookingComplete() {
 
     let { bookingId } = useParams(null);
-    const[ isApproved, setIsApproved] = useState(false);
-
-    useEffect(() => {
-        getBookingDetails();
-    }, [])
-
-    async function getBookingDetails() {
-        let bookingDetails = await fetchBookingDetails(bookingId);
-        console.log("A", bookingDetails.is_confirmed);
-        bookingDetails?.is_confirmed && setIsApproved(bookingDetails.is_confirmed)
-    }
 
     return (
         <div>
             <h1>Booking Complete!</h1>
-            <BookingStatus approved={isApproved}/>
+            <BookingStatus bookingId={bookingId}/>
+            <div>
+                <button onClick={() => reRouteTo("/Houses")}>Back</button>
+            </div>
         </div>
     )
 }
