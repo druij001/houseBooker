@@ -17,12 +17,14 @@ export default function BookStay() {
     async function submitPage() {
 
         let res = await insertBookingDetails(houseId, startDate, endDate, numPeople, message);
-        
+        let bookingId = res?.bookingId;
         if(res) {
             alert(res);
         } else {
             alert("ERROR");
         }
+
+        window.location.href = `/Booking/${bookingId}/complete`;
     }
 
     return (
