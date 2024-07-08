@@ -291,3 +291,7 @@ button:focus-visible {
     border-radius: 20;
     padding: 10;
   }
+
+  .dateFilled {
+    color: #111111;
+  }

@@ -44,7 +44,7 @@ const DatePicker = ({currentDate, setCurrentDate}) => {
   
     return (
         <div>
-            <MonthPickerHeader className="col"
+            <MonthPickerHeader className=""
                 currentDate={currentDate || new Date()}
                 onBackPress = {() => increaseMonth(false)}
                 onForwardPress = {() => increaseMonth(true)}/>
@@ -54,13 +54,14 @@ const DatePicker = ({currentDate, setCurrentDate}) => {
                         key={i}
                         days={week}
                         index={i} 
-                        selectDate={(id) => handleDayPress(id)}/>
+                        selectDate={(id) => handleDayPress(id)}
+                        currentDate={currentDate}/>
                 ))}
             </div>
 
             <button onClick={() => setCurrentDate(null)}>
                 <p>{currentDate ? formatDatestring(currentDate) : "No Date"}</p>
-                <p>Back</p>
+                <p>Cancel</p>
             </button>
         </div>        
     )
@@ -69,13 +70,13 @@ const DatePicker = ({currentDate, setCurrentDate}) => {
 export default DatePicker;
 
 
-export function MonthWeek({days, index, selectDate}) {
+export function MonthWeek({days, index, selectDate, currentDate}) {
 
     return (
         <div>
             <p>{getDayAbbr(index)}</p>
             {days.map((day, i) => (
-                <button className="dateButton" key={i} onClick={() => selectDate(day)}>
+                <button className={"dateFilled"} key={i} onClick={() => selectDate(day)}>
                     <p className="plusButton">{day}</p>
                 </button>
             ))}
@@ -94,7 +95,7 @@ export function MonthPickerHeader({currentDate, onForwardPress, onBackPress}) {
                 <p>{getMonthName(currentDate.getMonth())} {currentDate.getFullYear()}</p>
                 
                 <button className="plusButton" onClick={() => onForwardPress()}>
-                    <p>Back</p>
+                    <p>Next</p>
                 </button>
             </div>
     )
