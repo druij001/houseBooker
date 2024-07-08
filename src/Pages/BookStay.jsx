@@ -11,18 +11,24 @@ export default function BookStay() {
     const [message, setMessage] = useState("");
 
     useEffect (() => {
-    }, [inDate, outDate]);
+    }, [startDate, endDate]);
 
 
-    function submitPage() {
+    async function submitPage() {
 
-        insertBookingDetails(houseId)
+        let res = await insertBookingDetails(houseId, startDate, endDate, numPeople, message);
+        
+        if(res) {
+            alert(res);
+        } else {
+            alert("ERROR");
+        }
     }
 
     return (
         <div>
             <h1>Book Stay</h1>
-            <p>{`${inDate} - ${outDate}`}</p>
+            <p>{`${startDate} - ${endDate}`}</p>
             <div className="col">
                 <DatePicker currentDate={startDate} setCurrentDate={(date) => setStartDate(date)}/>
                 <DatePicker currentDate={endDate} setCurrentDate={(date) => setEndDate(date)}/>

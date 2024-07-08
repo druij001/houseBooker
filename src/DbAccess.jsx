@@ -99,6 +99,6 @@ export async function insertBookingDetails(houseId, startDate, endDate, numPeopl
   if(error) {
     console.log("E", error);
   } else {
-    console.log(data);
+    return data;
   }
 }
