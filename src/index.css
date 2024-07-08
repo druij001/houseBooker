@@ -41,21 +41,6 @@ h2 {
 }
 
 
-
-button {
-  flex-direction: column;
-  align-items: center;
-  max-width: 300px;
-  border-radius: 8px;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-
 input {
   margin: 5px;
 }
@@ -84,6 +69,7 @@ button:focus-visible {
 .houseCard {
   display: flex;
   flex-direction: column;
+  align-items: center;
   height: 95%;
 
   padding: 20px;
@@ -154,7 +140,6 @@ button:focus-visible {
 .addButton {
   background-color: #1a1a1a;
   padding: .6em;
-  border:rgba(255, 255, 255, 0.87);
   border-radius: 10px;
 }
 
@@ -166,3 +151,141 @@ button:focus-visible {
 
   border-radius: 10px;
 }
+
+.defaultButton {
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+    border-radius: 8px;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+
+
+
+
+
+
+
+
+
+  .box {
+    padding: 20;
+    border-radius: 20;
+  }
+
+  .squareBox {
+    width: 120;
+    height: 120;
+
+    margin: 20;
+    justify-content: "center";
+    text-align: "center";
+    vertical-align: "middle";
+    align-items: "center";
+
+    border-radius: 20
+    
+  }
+
+  .flexContainer {
+    flex: 1;
+    flex-direction: "column";
+    justify-content: "center";
+    align-items: "center";
+
+    margin: 20
+  }
+
+  .flexRow {
+    flex-direction: "row";
+  }
+
+  .navBar {
+
+    height: 80;
+  }
+
+  .container {
+    margin: 10;
+    padding: 12;
+  }
+
+  .centeredContainer {
+    align-items: "center"
+  }
+
+  .verticallySpaced {
+    padding: 4;
+    align-self: 'stretch';
+  };
+
+  .defaultButton {
+    align-items: 'center';
+    justify-content: 'center';
+    padding: 5;
+    margin: 10;
+    border-radius: 30;
+  }
+
+  .plusButton {
+    width: 50;
+    height: 50;
+
+    justify-content: "center";
+    text-align: "center";
+    vertical-align: "middle";
+    align-items: "center";
+
+    border-radius: 50
+  }
+
+  .colorButton {
+    height: 40; 
+    width: 40;
+
+    border-radius: 30;
+
+    margin: 20
+  }
+
+  .dateButton {
+    border-radius: 50;
+  }
+
+  .windowedOption {
+    flex-direction: "row";
+    justify-content: "space-between";
+    margin: 10;
+
+    border-radius: 35;
+    border-width: 1;
+
+  }
+
+  .priorityButton {
+    flex: 1;
+    align-items: "center";
+    padding: 20;
+    margin: 10;
+    border-radius: 10
+  }
+
+  .defaultInput {
+    background: "#ffffff";
+
+    padding: 20;
+    margin: 10;
+
+    border-radius: 30;
+  }
+
+ .basicDropdown {
+    border-radius: 20;
+    padding: 10;
+  }

@@ -10,10 +10,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@ionic/react": "^8.2.5",
+    "@mui/x-date-pickers": "^7.8.0",
+    "@mui/x-date-pickers-pro": "^7.8.0",
     "@supabase/supabase-js": "^2.44.0",
+    "date-fns": "^3.6.0",
     "react": "^18.3.1",
+    "react-date-picker": "^11.0.0",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.24.0"
+    "react-js-vector-icons": "^0.0.4",
+    "react-native-vector-icons": "^10.1.0",
+    "react-router-dom": "^6.24.0",
+    "rsuite": "^5.65.1"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

@@ -74,7 +74,7 @@ export default function HouseDetails() {
             </div>
 
             <div>
-                <button onClick={redirectToStay} style={{margin: '10px'}}>Stay Here</button>
+                <button onClick={redirectToStay} className="defaultButton">Stay Here</button>
             </div>
 
             {imageUrls && 
