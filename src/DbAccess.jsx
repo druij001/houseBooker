@@ -47,6 +47,21 @@ export async function fetchImageURL(houseId, fileName) {
   }
 }
 
+export async function fetchBookingDetails(bookingId) {
+  
+  const {data, error} = await supabase.from("Booking")
+  .select()
+  .eq('id', bookingId)
+  .single();
+
+  if(error) {
+    console.log('e', error);
+  } else {
+    console.log(data);
+    return data;
+  }
+}
+
 export async function uploadHouseImage(houseId, file) {
     console.log(houseId);
     const { data, error } = await supabase.storage.from('house_photos')

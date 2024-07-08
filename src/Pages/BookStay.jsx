@@ -17,9 +17,9 @@ export default function BookStay() {
     async function submitPage() {
 
         let res = await insertBookingDetails(houseId, startDate, endDate, numPeople, message);
-        let bookingId = res?.bookingId;
+        let bookingId = res?.id;
         if(res) {
-            alert(res);
+            alert(bookingId);
         } else {
             alert("ERROR");
         }
