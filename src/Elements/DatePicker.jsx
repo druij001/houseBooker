@@ -44,19 +44,18 @@ const DatePicker = ({currentDate, setCurrentDate}) => {
   
     return (
         <div>
-            <MonthPickerHeader 
+            <MonthPickerHeader className="col"
                 currentDate={currentDate || new Date()}
                 onBackPress = {() => increaseMonth(false)}
                 onForwardPress = {() => increaseMonth(true)}/>
-            
-            <div>
-            {monthDates ? monthDates.map((week, i) => (
+            <div className="row">
+            {monthDates?.map((week, i) => (
                     <MonthWeek 
                         key={i}
                         days={week}
                         index={i} 
                         selectDate={(id) => handleDayPress(id)}/>
-                )) : <div><p>no months</p></div>}
+                ))}
             </div>
 
             <button onClick={() => setCurrentDate(null)}>
@@ -87,7 +86,7 @@ export function MonthWeek({days, index, selectDate}) {
 export function MonthPickerHeader({currentDate, onForwardPress, onBackPress}) {
     
     return (
-        <div className="flexRow">
+        <div className="row">
                 <button className="plusButton" onClick={() => onBackPress()}>
                     <p>Back</p>
                 </button>
