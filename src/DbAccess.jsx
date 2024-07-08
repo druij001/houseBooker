@@ -90,3 +90,15 @@ export async function insertHouseDetails(houseId, pre, dur, post, cost, pub) {
     return data;
   }
 }
+
+export async function insertBookingDetails(houseId, startDate, endDate, numPeople, message) {
+  const {data, error} = await supabase.from("Booking")
+  .insert({house_id: houseId, start_date: startDate, end_date: endDate, num_people: numPeople, message: message})
+  .select().single();
+
+  if(error) {
+    console.log("E", error);
+  } else {
+    console.log(data);
+  }
+}

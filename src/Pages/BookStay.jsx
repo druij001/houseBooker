@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import DatePicker from "../Elements/DatePicker";
+import { insertBookingDetails } from "../DbAccess";
+import { useParams } from "react-router-dom";
 
 export default function BookStay() {
-    const [inDate, setInDate] = useState(new Date());
-    const [outDate, setOutDate] = useState(new Date());
+    let { houseId } = useParams(null);
+    const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(new Date());
     const [numPeople, setNumPeople] = useState(0);
     const [message, setMessage] = useState("");
 
@@ -12,10 +15,8 @@ export default function BookStay() {
 
 
     function submitPage() {
-        console.log("-----------------");
-        console.log("i", inDate);
-        console.log("n", numPeople);
-        console.log(message);
+
+        insertBookingDetails(houseId)
     }
 
     return (
@@ -23,8 +24,8 @@ export default function BookStay() {
             <h1>Book Stay</h1>
             <p>{`${inDate} - ${outDate}`}</p>
             <div className="col">
-                <DatePicker currentDate={inDate} setCurrentDate={(date) => setInDate(date)}/>
-                <DatePicker currentDate={outDate} setCurrentDate={(date) => setOutDate(date)}/>
+                <DatePicker currentDate={startDate} setCurrentDate={(date) => setStartDate(date)}/>
+                <DatePicker currentDate={endDate} setCurrentDate={(date) => setEndDate(date)}/>
             </div>
             <div>
                 <input name="numPeople" type="number" placeholder="number of people" onChange={(val) => setNumPeople(val.target.value)}/>
