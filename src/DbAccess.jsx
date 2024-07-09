@@ -64,7 +64,7 @@ export async function fetchBookingDetails(bookingId) {
 export async function fetchBookings() {
   const {data, error} = await supabase.from('Booking')
   .select(`
-    id, start_date, end_date, num_people, message, is_confirmed,
+    id, created_at, start_date, end_date, num_people, message, is_confirmed,
     Houses (id, cost_per_night, number, street, suburb, state, user_id),
     profiles (id, full_name)`);
 
@@ -104,8 +104,7 @@ export async function insertHouse(nm, str, sb, sta, po) {
 }
 
 export async function insertHouseDetails(houseId, pre, dur, post, cost, pub) {
- 
-  console.log(houseId);
+
   const {data, error} = await supabase.from('Houses')
   .update({pre_stay_info: pre, post_stay_info: post, stay_info: dur, cost_per_night: cost, public: pub})
   .eq("id", houseId)
@@ -115,6 +114,19 @@ export async function insertHouseDetails(houseId, pre, dur, post, cost, pub) {
     console.log("Error inserting details");
   } else {
     console.log(data);
+    return data;
+  }
+}
+
+export async function updateBookingApproval(bookingId, approvalStatus) {
+  const {data, error} = await supabase.from('Booking')
+  .update({is_confirmed: approvalStatus})
+  .eq('id', bookingId)
+  .select().single();
+
+  if(error) {
+    console.log("Error updating", bookingId);
+  } else {
     return data;
   }
 }
